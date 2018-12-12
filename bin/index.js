@@ -1,18 +1,27 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const images = require('../lib/images');
+const image = require('../lib/images');
+const container = require('../lib/container');
 
 program
     .version('0.0.1')
     .parse(process.argv);
 
 program
-    .command('images')
+    .command('image')
     .alias('i')
-    .description('Select for delete docker images')
+    .description('Select for delete docker image')
     .action(function () {
-        images();
+        image();
+    });
+
+program
+    .command('container')
+    .alias('c')
+    .description('Select for delete docker container')
+    .action(function () {
+        container();
     });
 
 program.parse(process.argv);
